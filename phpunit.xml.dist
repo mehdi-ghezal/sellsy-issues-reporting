@@ -1,0 +1,20 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.5/phpunit.xsd"
+        colors="true"
+        stderr="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        stopOnFailure="false"
+        bootstrap="tests/bootstrap.php"
+        verbose="true">
+    <testsuites>
+        <testsuite name="Sellsy API : Documents">
+            <directory>./tests/Documents</directory>
+        </testsuite>
+        <testsuite name="Sellsy API : Catalogue">
+            <directory>./tests/Catalogue</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
