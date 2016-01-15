@@ -29,24 +29,17 @@ class GetListTest extends \PHPUnit_Framework_TestCase
         return $apiResponse->response->result;
     }
 
-    public function testDuplicateDataPage1()
+    public function testDuplicated()
     {
         $identifiers = array();
 
-        foreach($this->getData(1) as $result) {
-            $identifiers[] = $result->ident;
+        for ($page = 1; $page <= 3 ; $page++) {
+            foreach($this->getData($page) as $result) {
+                $identifiers[] = $result->id;
+            }
         }
 
-        $this->assertEquals(count($identifiers), count(array_unique($identifiers)));
-    }
-
-    public function testDuplicateDataPage2()
-    {
-        $identifiers = array();
-
-        foreach($this->getData(2) as $result) {
-            $identifiers[] = $result->ident;
-        }
+        var_dump($identifiers);
 
         $this->assertEquals(count($identifiers), count(array_unique($identifiers)));
     }
