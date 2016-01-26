@@ -39,8 +39,13 @@ class GetListTest extends \PHPUnit_Framework_TestCase
             }
         }
 
-        var_dump($identifiers);
+        $dupplicated = array_unique(array_diff_assoc($identifiers, array_unique($identifiers)));
+        $dupplicatedText = '';
 
-        $this->assertEquals(count($identifiers), count(array_unique($identifiers)));
+        foreach($dupplicated as $index => $id) {
+            $dupplicatedText .= sprintf(" Estimate %s duplicate at position %s.", $id, $index + 1);
+        }
+
+        $this->assertEquals(count($identifiers), count(array_unique($identifiers)), $dupplicatedText);
     }
 }
